@@ -16,7 +16,25 @@
   </head>
   <body>
     <div class="container">
-      <script src="src/app.js"></script>
+      <div class="content">
+        <form id="search-form">
+          <div class="row">
+            <div class="col-10">
+              <input
+                class="enter-city"
+                id="search-input"
+                type="search"
+                placeholder="Enter a city"
+                autocomplete="off"
+              />
+            </div>
+            <div class="col-2">
+              <input class="submit-city" type="submit" value="🔍" />
+            </div>
+          </div>
+        </form>
+        <script src="src/app.js"></script>
+      </div>
     </div>
   </body>
 </html>
