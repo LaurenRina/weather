@@ -1,7 +1,8 @@
 body {
-  font-family: Cerebri Sans, Helvetica, Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 h1 {
+  color: #5a6275;
   font-size: 32px;
   font-weight: bold;
 }
@@ -18,12 +19,17 @@ ul {
   font-size: 16px;
   padding: 14px 0px 0px 0px;
 }
+.container {
+  display: block;
+  max-width: 600px;
+  padding: 20px;
+}
 .content {
   display: block;
   border: 2px solid #979eac;
-  padding-bottom: 15px;
+  padding: 20px;
   max-width: 550px;
-  margin: 50px auto 20px;
+  margin: 30px auto 0px;
 }
 .search {
   display: block;
@@ -31,7 +37,7 @@ ul {
   padding: 12px 20px;
   background: #f1f1f1;
   border: 2px solid #528aae;
-  margin: -2px -2px auto;
+  margin: -22px -22px auto;
 }
 .enter-city {
   background: #f1f1f1;
@@ -49,35 +55,43 @@ ul {
   color: #000000;
   text-align: center;
   font-size: 18px;
-  padding: 12px 15px 0px;
+  padding-top: 12px;
 }
 .information {
-  padding: 10px 22px 12px;
+  padding: 0px 10px 10px;
 }
 .current-weather {
-  padding: 0px;
+  padding: 10px 0px;
 }
-.forecast-day,
-.forecast-icon {
-  text-align: center;
-}
-.forecast-icon-main {
+.current-weather-icon {
   text-align: center;
   font-size: 80px;
   padding-left: 20px;
 }
-.forecast-temperature-main-day {
+.current-weather-temperature {
   text-align: left;
   font-weight: bold;
   line-height: normal;
   padding: 12px 0px 0px;
 }
-.forecast-temperature-main {
+.temperature-day {
+  font-size: 44px;
+}
+.temperature-information {
   text-align: left;
   padding-left: 15px;
 }
-.forecast {
-  padding: 0px 20px 10px;
+.temperature-units {
+  position: relative;
+  top: -20px;
+}
+.unit-link {
+  text-decoration: none;
+  color: #000000;
+}
+.forecast-day,
+.forecast-icon {
+  text-align: center;
 }
 .forecast-day {
   color: #5a6275;
@@ -91,17 +105,6 @@ ul {
 }
 .forecast-temperature {
   text-align: left;
-}
-.temperature {
-  font-size: 44px;
-}
-.units {
-  position: relative;
-  top: -20px;
-}
-.link-unit {
-  text-decoration: none;
-  color: #000000;
 }
 .link {
   display: block;
