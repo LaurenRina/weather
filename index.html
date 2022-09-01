@@ -46,10 +46,10 @@
         <div class="information">
           <div class="row">
             <div class="col-7">
-              <h1>Kyiv</h1>
+              <h1 id="city">Kyiv</h1>
             </div>
             <div class="col-5">
-              <h2>Friday, August 5</h2>
+              <h2 id="date">Friday, August 5</h2>
             </div>
           </div>
         </div>
@@ -58,7 +58,7 @@
             <div class="col-7">
               <div class="row">
               <div class="col-5">
-                <div class="current-weather-icon">
+                <div class="current-weather-icon" id="icon">
                 ⛅
                 </div>
               </div>
@@ -81,13 +81,13 @@
             <div class="col-5">
               <ul>
                 <li>
-                  Precipitation: 5%
+                  Precipitation: 5<span id="precipitation"></span>%
                 </li>
                 <li>
-                  Humidity: 63%
+                  Humidity: 63<span id="humidity"></span>%
                 </li>
                 <li>
-                  Wind speed: 12km/h
+                  Wind speed: 12<span id="wind"></span> m/h
                 </li>
               </ul>
             </div>
