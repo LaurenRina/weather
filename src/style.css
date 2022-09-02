@@ -5,6 +5,7 @@ h1 {
   color: #5a6275;
   font-size: 32px;
   font-weight: bold;
+  padding-top: 5px;
 }
 h2 {
   color: #5a6275;
@@ -16,7 +17,7 @@ ul {
   list-style: none;
   color: #979eac;
   font-size: 16px;
-  padding: 14px 0px 0px 0px;
+  padding-top: 14px;
 }
 .container {
   display: block;
@@ -64,13 +65,12 @@ ul {
 .current-weather-icon {
   text-align: center;
   font-size: 80px;
-  padding-left: 20px;
 }
 .current-weather-temperature {
   text-align: left;
   font-weight: bold;
   line-height: normal;
-  padding: 12px 0px 0px;
+  padding: 12px 10px 0px 0px;
 }
 .temperature-day {
   font-size: 44px;
@@ -86,6 +86,7 @@ ul {
 .unit-link {
   text-decoration: none;
   color: #000000;
+  cursor: default;
 }
 .forecast-day,
 .forecast-icon {
@@ -104,8 +105,11 @@ ul {
 .forecast-temperature {
   text-align: left;
 }
-.link {
+.source {
   display: block;
   text-align: center;
   margin: auto;
+}
+.link {
+  cursor: default;
 }

@@ -46,33 +46,35 @@ function showTemperature(response) {
   let date = document.querySelector("#date");
   let icon = document.querySelector("#icon");
 
-  temperature.innerHTML = response.data.main.temp.toFixed(0);
+  celsiusTemperature = response.data.main.temp;
+
+  temperature.innerHTML = celsiusTemperature.toFixed(0);
   city.innerHTML = response.data.name;
   humidity.innerHTML = response.data.main.humidity;
-  wind.innerHTML = Math.round(response.data.wind.speed);
+  wind.innerHTML = response.data.wind.speed.toFixed(0);
   date.innerHTML = formatDate(response.data.dt * 1000);
   icon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
+  icon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function search(city) {
   let apiKey = "3e5761385c02293899defe61082c2901";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(`${apiUrl}`).then(showTemperature);
+  axios.get(apiUrl).then(showTemperature);
 }
 
 function submit(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input");
-  search = `${searchInput.value}`;
+  search(searchInput.value);
 }
+
+let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", submit);
-
-let celsiusTemperature = null;
 
 search("Kyiv");
