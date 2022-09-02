@@ -41,6 +41,7 @@ function formatDate(timestamp) {
 function showTemperature(response) {
   let temperature = document.querySelector("#current-temperature");
   let city = document.querySelector("#city");
+  let description = document.querySelector("#description");
   let humidity = document.querySelector("#humidity");
   let wind = document.querySelector("#wind");
   let date = document.querySelector("#date");
@@ -50,6 +51,7 @@ function showTemperature(response) {
 
   temperature.innerHTML = celsiusTemperature.toFixed(0);
   city.innerHTML = response.data.name;
+  description.innerHTML = response.data.weather[0].description;
   humidity.innerHTML = response.data.main.humidity;
   wind.innerHTML = response.data.wind.speed.toFixed(0);
   date.innerHTML = formatDate(response.data.dt * 1000);
@@ -72,9 +74,28 @@ function submit(event) {
   search(searchInput.value);
 }
 
+function changeFahrenheit(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#current-temperature");
+  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperature.innerHTML = fahrenheiTemperature.toFixed(0);
+}
+
+function changeCelsius(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#current-temperature");
+  temperature.innerHTML = celsiusTemperature.toFixed(0);
+}
+
 let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", submit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", changeFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", changeCelsius);
 
 search("Kyiv");

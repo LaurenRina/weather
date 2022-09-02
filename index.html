@@ -19,7 +19,7 @@
       <div class="content">
         <form class= "search" id="search-form">
           <div class="row">
-            <div class="col-10">
+            <div class="col-9">
               <input
                 class="enter-city"
                 id="search-input"
@@ -28,7 +28,7 @@
                 autocomplete="off"
               />
             </div>
-            <div class="col-2">
+            <div class="col-3">
               <input class="submit-city" type="submit" value="Search" />
             </div>
           </div>
@@ -58,13 +58,13 @@
             <div class="col-7">
               <div class="row">
               <div class="col-5">
-                <div class="current-weather-icon" id="icon"></div>
+                  <img src="" alt="" class="current-weather-icon" id="icon" />
               </div>
               <div class="col-7">
                 <div class="current-weather-temperature">
                 <span class="temperature-day" id="current-temperature"></span>
                 <span class="temperature-units">
-                  <a href="#" class="unit-link" id="celcium-link">°C</a>|
+                  <a href="#" class="unit-link" id="celsius-link">°C</a>|
                   <a href="#" class="unit-link" id="fahrenheit-link">°F</a>
                 </span>
                 </div>
@@ -77,7 +77,7 @@
             <div class="col-5">
               <ul>
                 <li>
-                  Precipitation: <span id="precipitation"></span>%
+                  <span id="description"></span>
                 </li>
                 <li>
                   Humidity: <span id="humidity"></span>%
