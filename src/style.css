@@ -90,6 +90,7 @@ li:first-letter {
   position: relative;
   top: -20px;
 }
+.city-link,
 .unit-link {
   text-decoration: none;
   color: #000000;

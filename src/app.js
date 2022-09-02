@@ -74,6 +74,31 @@ function submit(event) {
   search(searchInput.value);
 }
 
+function temperatureLondon(event) {
+  event.preventDefault();
+  search("London");
+}
+
+function temperatureParis(event) {
+  event.preventDefault();
+  search("Paris");
+}
+
+function temperatureRome(event) {
+  event.preventDefault();
+  search("Rome");
+}
+
+function temperatureBerlin(event) {
+  event.preventDefault();
+  search("Berlin");
+}
+
+function temperatureWarsaw(event) {
+  event.preventDefault();
+  search("Warsaw");
+}
+
 function changeFahrenheit(event) {
   event.preventDefault();
   let temperature = document.querySelector("#current-temperature");
@@ -91,6 +116,21 @@ let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", submit);
+
+let linkLondon = document.querySelector("#link-London");
+linkLondon.addEventListener("click", temperatureLondon);
+
+let linkParis = document.querySelector("#link-Paris");
+linkParis.addEventListener("click", temperatureParis);
+
+let linkRome = document.querySelector("#link-Rome");
+linkRome.addEventListener("click", temperatureRome);
+
+let linkBerlin = document.querySelector("#link-Berlin");
+linkBerlin.addEventListener("click", temperatureBerlin);
+
+let linkWarsaw = document.querySelector("#link-Warsaw");
+linkWarsaw.addEventListener("click", temperatureWarsaw);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", changeFahrenheit);
