@@ -7,7 +7,7 @@ function formatDate(timestamp) {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Satday",
+    "Saturday",
   ];
   let day = days[now.getDay()];
   let hours = now.getHours();
@@ -19,7 +19,7 @@ function formatDate(timestamp) {
     min = "0" + min;
   }
   let months = [
-    "Junuary",
+    "January",
     "February",
     "March",
     "April",
