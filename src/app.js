@@ -40,6 +40,8 @@ function formatDate(timestamp) {
 
 function showTemperature(response) {
   let temperature = document.querySelector("#current-temperature");
+  let max = document.querySelector("#max");
+  let min = document.querySelector("#min");
   let city = document.querySelector("#city");
   let description = document.querySelector("#description");
   let humidity = document.querySelector("#humidity");
@@ -50,6 +52,8 @@ function showTemperature(response) {
   celsiusTemperature = response.data.main.temp;
 
   temperature.innerHTML = celsiusTemperature.toFixed(0);
+  max.innerHTML = response.data.main.temp_max.toFixed(0);
+  min.innerHTML = response.data.main.temp_min.toFixed(0);
   city.innerHTML = response.data.name;
   description.innerHTML = response.data.weather[0].description;
   humidity.innerHTML = response.data.main.humidity;
@@ -76,7 +80,8 @@ function submit(event) {
 
 function temperatureLondon(event) {
   event.preventDefault();
-  search("London");
+  let cityElement = ["London", "Paris", "Rome"];
+  search(cityElement[0]);
 }
 
 function temperatureParis(event) {
