@@ -49,9 +49,7 @@ function showTemperature(response) {
   let date = document.querySelector("#date");
   let icon = document.querySelector("#icon");
 
-  celsiusTemperature = response.data.main.temp;
-
-  temperature.innerHTML = celsiusTemperature.toFixed(0);
+  temperature.innerHTML = response.data.main.temp.toFixed(0);
   max.innerHTML = response.data.main.temp_max.toFixed(0);
   min.innerHTML = response.data.main.temp_min.toFixed(0);
   city.innerHTML = response.data.name;
@@ -104,21 +102,6 @@ function temperatureWarsaw(event) {
   search("Warsaw");
 }
 
-function changeFahrenheit(event) {
-  event.preventDefault();
-  let temperature = document.querySelector("#current-temperature");
-  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperature.innerHTML = fahrenheiTemperature.toFixed(0);
-}
-
-function changeCelsius(event) {
-  event.preventDefault();
-  let temperature = document.querySelector("#current-temperature");
-  temperature.innerHTML = celsiusTemperature.toFixed(0);
-}
-
-let celsiusTemperature = null;
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", submit);
 
@@ -136,11 +119,5 @@ linkBerlin.addEventListener("click", temperatureBerlin);
 
 let linkWarsaw = document.querySelector("#link-Warsaw");
 linkWarsaw.addEventListener("click", temperatureWarsaw);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", changeFahrenheit);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", changeCelsius);
 
 search("Kyiv");

@@ -83,14 +83,13 @@ li:first-letter {
 }
 .temperature-information {
   text-align: left;
-  padding-left: 15px;
+  padding-left: 8px;
 }
-.temperature-units {
+.temperature-unit {
   position: relative;
   top: -20px;
 }
-.city-link,
-.unit-link {
+.city-link {
   text-decoration: none;
   color: #000000;
   cursor: default;
