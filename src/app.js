@@ -53,6 +53,8 @@ function showForecast(response) {
 
   let forecastHTML = `<div class="row">`;
   forecastInfo.forEach(function (dayInfo, index) {
+    console.log(dayInfo.dt_txt.includes("12:00:00"));
+
     if (index < 5) {
       forecastHTML =
         forecastHTML +
@@ -88,7 +90,6 @@ function showForecast(response) {
 }
 
 function getForecast(city) {
-  console.log(city);
   let apiKey = "3e5761385c02293899defe61082c2901";
   let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showForecast);
