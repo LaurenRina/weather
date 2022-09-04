@@ -16,7 +16,7 @@ ul {
   list-style: none;
   color: #979eac;
   font-size: 16px;
-  padding-top: 14px;
+  padding-top: 25px;
 }
 li:first-letter {
   text-transform: capitalize;
@@ -63,27 +63,25 @@ li:first-letter {
   padding-top: 12px;
 }
 .information {
-  padding: 0px 10px 10px;
+  padding: 0px 10px;
 }
 .current-weather {
-  padding: 10px 0px 15px;
+  padding: 10px 0px;
 }
 .current-weather-icon {
-  text-align: center;
-  font-size: 80px;
+  width: 120px;
 }
 .current-weather-temperature {
   text-align: left;
   font-weight: bold;
   line-height: normal;
-  padding-top: 12px;
+  padding: 25px 0px 0px;
 }
 .temperature-day {
   font-size: 44px;
 }
 .temperature-information {
   text-align: left;
-  padding-left: 8px;
 }
 .temperature-unit {
   position: relative;
@@ -94,19 +92,18 @@ li:first-letter {
   color: #000000;
   cursor: default;
 }
-.forecast-day,
-.forecast-icon {
-  text-align: center;
-}
 .forecast-day {
   color: #5a6275;
+  text-align: center;
   font-size: 18px;
   font-weight: bold;
   padding: 15px 0px;
 }
 .forecast-icon {
-  font-size: 30px;
-  padding: 0px;
+  width: 60px;
+  position: relative;
+  top: -7px;
+  left: -10px;
 }
 .forecast-temperature {
   text-align: left;

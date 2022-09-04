@@ -38,6 +38,62 @@ function formatDate(timestamp) {
   return text;
 }
 
+function formatDay(timestamp) {
+  let now = new Date(timestamp);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = days[now.getDay()];
+  return day;
+}
+
+function showForecast(response) {
+  console.log(response.data);
+  let forecast = document.querySelector("#forecast");
+
+  let forecastInfo = response.data.list;
+
+  let forecastHTML = `<div class="row">`;
+  forecastInfo.forEach(function (dayInfo, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col">
+          <div class="forecast-day">
+            ${formatDay(dayInfo.dt * 1000)}
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <img 
+              src="http://openweathermap.org/img/wn/${
+                dayInfo.weather[0].icon
+              }@2x.png" 
+              alt=${dayInfo.weather[0].description} 
+              class="forecast-icon" />
+            </div>
+            <div class="col-6">
+              <div class="forecast-temperature">
+                <strong>${dayInfo.main.temp_max.toFixed(0)}°</strong>
+                <br />
+                ${dayInfo.main.temp_min.toFixed(0)}°
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecast.innerHTML = forecastHTML;
+}
+
+function getForecast(city) {
+  console.log(city);
+  let apiKey = "3e5761385c02293899defe61082c2901";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
+}
+
 function showTemperature(response) {
   let temperature = document.querySelector("#current-temperature");
   let max = document.querySelector("#max");
@@ -62,6 +118,8 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.name);
 }
 
 function search(city) {
@@ -74,6 +132,7 @@ function submit(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input");
   search(searchInput.value);
+  getForecast(searchInput.value);
 }
 
 function temperatureLondon(event) {
