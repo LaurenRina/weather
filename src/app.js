@@ -52,10 +52,8 @@ function showForecast(response) {
   let forecastInfo = response.data.list;
 
   let forecastHTML = `<div class="row">`;
-  forecastInfo.forEach(function (dayInfo, index) {
-    console.log(dayInfo.dt_txt.includes("12:00:00"));
-
-    if (index < 5) {
+  forecastInfo.forEach(function (dayInfo) {
+    if (dayInfo.dt_txt.match("00:00:00")) {
       forecastHTML =
         forecastHTML +
         `<div class="col">
