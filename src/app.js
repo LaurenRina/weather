@@ -46,7 +46,6 @@ function formatDay(timestamp) {
 }
 
 function showForecast(response) {
-  console.log(response.data);
   let forecast = document.querySelector("#forecast");
 
   let forecastInfo = response.data.list;
@@ -93,6 +92,33 @@ function getForecast(city) {
   axios.get(apiUrl).then(showForecast);
 }
 
+function cityName(response) {
+  console.log(response.data);
+
+  let cities = document.querySelector("#cities");
+
+  let cityName = ["London", "Paris", "Rome", "Berlin", "Kyiv"];
+
+  let cityNameHTML = `<div class="row">`;
+  cityName.forEach(function (city) {
+    cityNameHTML =
+      cityNameHTML +
+      `<div class="col">
+    <a href="#" class="city-link" id="city-link">${city}</a>
+    </div>`;
+  });
+
+  cityNameHTML = cityNameHTML + `</div>`;
+
+  cities.innerHTML = cityNameHTML;
+}
+
+function getCity(city) {
+  let apiKey = "3e5761385c02293899defe61082c2901";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(cityName);
+}
+
 function showTemperature(response) {
   let temperature = document.querySelector("#current-temperature");
   let max = document.querySelector("#max");
@@ -119,6 +145,8 @@ function showTemperature(response) {
   icon.setAttribute("alt", response.data.weather[0].description);
 
   getForecast(response.data.name);
+
+  getCity(response.data.name);
 }
 
 function search(city) {
@@ -134,48 +162,7 @@ function submit(event) {
   getForecast(searchInput.value);
 }
 
-function temperatureLondon(event) {
-  event.preventDefault();
-  let cityElement = ["London", "Paris", "Rome"];
-  search(cityElement[0]);
-}
-
-function temperatureParis(event) {
-  event.preventDefault();
-  search("Paris");
-}
-
-function temperatureRome(event) {
-  event.preventDefault();
-  search("Rome");
-}
-
-function temperatureBerlin(event) {
-  event.preventDefault();
-  search("Berlin");
-}
-
-function temperatureWarsaw(event) {
-  event.preventDefault();
-  search("Warsaw");
-}
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", submit);
-
-let linkLondon = document.querySelector("#link-London");
-linkLondon.addEventListener("click", temperatureLondon);
-
-let linkParis = document.querySelector("#link-Paris");
-linkParis.addEventListener("click", temperatureParis);
-
-let linkRome = document.querySelector("#link-Rome");
-linkRome.addEventListener("click", temperatureRome);
-
-let linkBerlin = document.querySelector("#link-Berlin");
-linkBerlin.addEventListener("click", temperatureBerlin);
-
-let linkWarsaw = document.querySelector("#link-Warsaw");
-linkWarsaw.addEventListener("click", temperatureWarsaw);
 
 search("Kyiv");
