@@ -92,33 +92,6 @@ function getForecast(city) {
   axios.get(apiUrl).then(showForecast);
 }
 
-function cityName(response) {
-  console.log(response.data);
-
-  let cities = document.querySelector("#cities");
-
-  let cityName = ["London", "Paris", "Rome", "Berlin", "Kyiv"];
-
-  let cityNameHTML = `<div class="row">`;
-  cityName.forEach(function (city) {
-    cityNameHTML =
-      cityNameHTML +
-      `<div class="col">
-    <a href="#" class="city-link" id="city-link">${city}</a>
-    </div>`;
-  });
-
-  cityNameHTML = cityNameHTML + `</div>`;
-
-  cities.innerHTML = cityNameHTML;
-}
-
-function getCity(city) {
-  let apiKey = "3e5761385c02293899defe61082c2901";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(cityName);
-}
-
 function showTemperature(response) {
   let temperature = document.querySelector("#current-temperature");
   let max = document.querySelector("#max");
@@ -145,11 +118,9 @@ function showTemperature(response) {
   icon.setAttribute("alt", response.data.weather[0].description);
 
   getForecast(response.data.name);
-
-  getCity(response.data.name);
 }
 
-function search(city) {
+function searchCity(city) {
   let apiKey = "3e5761385c02293899defe61082c2901";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
@@ -158,11 +129,35 @@ function search(city) {
 function submit(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input");
-  search(searchInput.value);
+  searchCity(searchInput.value);
   getForecast(searchInput.value);
 }
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", submit);
 
-search("Kyiv");
+let cities = document.querySelector("#cities");
+
+let cityName = ["London", "Paris", "Rome", "Berlin", "Kyiv"];
+
+let cityNameHTML = `<div class="row">`;
+cityName.forEach(function (city) {
+  cityNameHTML =
+    cityNameHTML +
+    `<div class="col">
+    <a href="#" class="city-link" id="city-link">${city}</a>
+    </div>`;
+});
+
+cityNameHTML = cityNameHTML + `</div>`;
+
+cities.innerHTML = cityNameHTML;
+
+let citiesLink = document.querySelectorAll("#city-link");
+citiesLink.forEach((cityLink) =>
+  cityLink.addEventListener("click", (event) => {
+    event.preventDefault();
+  })
+);
+
+searchCity("Kyiv");
