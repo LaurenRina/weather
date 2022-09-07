@@ -134,30 +134,31 @@ function submit(event) {
 }
 
 let form = document.querySelector("#search-form");
-form.addEventListener("submit", submit);
+form.addEventListener("submit", submit); 
 
-let cities = document.querySelector("#cities");
+  let cities = document.querySelector("#cities");
 
-let cityName = ["London", "Paris", "Rome", "Berlin", "Kyiv"];
+  let cityName = ["London", "Paris", "Rome", "Berlin", "Kyiv"];
 
-let cityNameHTML = `<div class="row">`;
-cityName.forEach(function (city) {
-  cityNameHTML =
-    cityNameHTML +
-    `<div class="col">
+  let cityNameHTML = `<div class="row">`;
+  cityName.forEach(function (city) {
+    cityNameHTML =
+      cityNameHTML +
+      `<div class="col">
     <a href="#" class="city-link" id="city-link">${city}</a>
     </div>`;
-});
+  });
 
-cityNameHTML = cityNameHTML + `</div>`;
+  cityNameHTML = cityNameHTML + `</div>`;
 
-cities.innerHTML = cityNameHTML;
+  cities.innerHTML = cityNameHTML;
+
 
 let citiesLink = document.querySelectorAll("#city-link");
-citiesLink.forEach((cityLink) =>
-  cityLink.addEventListener("click", (event) => {
-    event.preventDefault();
-  })
-);
+citiesLink.forEach(function (cityLink) {
+  cityLink.addEventListener("click", function () {
+    searchCity(this.innerHTML);
+  });
+});
 
 searchCity("Kyiv");
