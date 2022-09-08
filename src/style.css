@@ -55,6 +55,7 @@ li:first-letter {
   display: block;
   background: #f2f2f1;
   border: none;
+  border-radius: 22px;
   padding: 10px 0px;
   margin: auto;
   transition: all 150ms ease-in-out;
