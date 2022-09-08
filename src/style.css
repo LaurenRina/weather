@@ -56,9 +56,11 @@ li:first-letter {
   background: #f2f2f1;
   border: none;
   border-radius: 22px;
-  padding: 10px 0px;
-  margin: auto;
+  padding: 10px 20px;
+  position: relative;
+  right: -10px;
   transition: all 150ms ease-in-out;
+  cursor: default;
 }
 .cities {
   display: block;
@@ -102,7 +104,7 @@ li:first-letter {
   text-align: center;
   font-size: 18px;
   font-weight: bold;
-  padding: 15px 0px;
+  padding: 10px 0px 15px;
 }
 .forecast-icon {
   width: 60px;
