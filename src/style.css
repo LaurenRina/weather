@@ -57,8 +57,7 @@ li:first-letter {
   border: none;
   border-radius: 22px;
   padding: 10px 20px;
-  position: relative;
-  right: -10px;
+  margin: auto;
   transition: all 150ms ease-in-out;
   cursor: default;
 }
